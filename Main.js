@@ -1,8 +1,21 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
+const morganMiddleware = require('./log/morgan');
 
 const maria = require("./maria.js");
 maria.connect();
+
+// 모든 요청 허용
+var corsOptions = {
+	origin: "*"
+};
+
+// 통신 CORM 설정
+app.use(cors(corsOptions));
+
+// 콘솔창에 통신결과 나오게 해주는 것
+app.use(morganMiddleware);  
 
 const multer = require('multer');
 const upload = multer({
@@ -19,6 +32,7 @@ const upload = multer({
 app.post('/uploadFile', upload.single('img'), (req, res) => {
   console.log('file >>> ', req.file); 
   console.log('file >>> ', req.body); 
+  return res.json({ file: req.file });
 });
 
 const bodyParser = require("body-parser");
@@ -64,17 +78,8 @@ app.use(express.static('uploads'));
 
 // 멤버조회
 app.get("/getMembers", (req, res) => {
-  console.log(">>> getMember is running");
-
   maria.query("SELECT * FROM MEMBER", function (err, rows) {
-    if (err) {
-      console.log(">>> error ");
-    } else {
-      console.log(">>> success ");
-      console.log(">>> rows ", rows[0]);
-
       return res.json(rows[0]);
-    }
   });
 });
 
