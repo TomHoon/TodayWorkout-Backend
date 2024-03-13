@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 30
+    },
+    "auditLog": "C:\\TodayWorkout-backend\\TodayWorkout-Backend\\logs\\error\\.7069ee460aa1121d52ba5f300e6c8c07cd0c03de-audit.json",
+    "files": [
+        {
+            "date": 1710332489928,
+            "name": "C:\\TodayWorkout-backend\\TodayWorkout-Backend\\logs\\error\\2024-03-13.error.log",
+            "hash": "2678817f2dd783479c6ed084e06d23f4b4c296ebc3b35db067eba8c857e5b885"
+        }
+    ],
+    "hashType": "sha256"
+}
