@@ -79,7 +79,7 @@ app.use(express.static('uploads'));
 // 멤버조회
 app.get("/getMembers", (req, res) => {
   maria.query("SELECT * FROM MEMBER", function (err, rows) {
-      return res.json(rows[0]);
+      return res.json(rows);
   });
 });
 
