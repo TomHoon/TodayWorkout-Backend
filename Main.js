@@ -102,9 +102,8 @@ app.post("/updatePw", jsonParser, (req, res) => {
     }
   });
 });
-
-
-
-app.listen(port, () => {
-  console.log(`server is listening at localhost:${process.env.PORT}`);
+const server = app.listen(port, function() {
+  console.log('server running on port 3300');
 });
+
+require('./Chat.js').construct(server);
