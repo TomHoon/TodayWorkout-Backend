@@ -10,7 +10,7 @@ exports.find = (req, res) => {
 			err.sql = ''
 			res.send(err);
 		} else {
-			res.send(data[0]);
+			res.send(data);
 		}
 	});
 };

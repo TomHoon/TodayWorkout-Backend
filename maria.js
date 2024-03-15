@@ -1,7 +1,7 @@
 const maria = require('mysql');
 
 const hostAddr = {
-    운영: 'tomhoon.duckdns.org:13300',
+    운영: 'tomhoon.duckdns.org',
     내부망: '192.168.0.100', // tomhoon만
     개발: 'localhost',
 }
