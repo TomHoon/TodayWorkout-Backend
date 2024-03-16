@@ -22,11 +22,14 @@ app.use('/members', require('./src/route/member.route'));
 app.use('/uploadFile', require('./src/route/uploadFile.route'));
 
 app.use(express.static('uploads'));
-const bodyParser = require("body-parser");
-// create application/json parser
-const jsonParser = bodyParser.json();
-// create application/x-www-form-urlencoded parser
-const urlencodedParser = bodyParser.urlencoded({ extended: false });
+
+// const bodyParser = require("body-parser");
+
+// // create application/json parser
+// const jsonParser = bodyParser.json();
+// // create application/x-www-form-urlencoded parser
+// const urlencodedParser = bodyParser.urlencoded({ extended: false });
+
 const port = process.env.PORT || 3300;
 
 const server = app.listen(port, function() {

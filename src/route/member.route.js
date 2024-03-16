@@ -1,5 +1,9 @@
 const router = require('express').Router();
 const member = require('../controller/member.controller.js');
+const express = require("express");
+
+router.use(express.json())
+router.use(express.urlencoded({extended:false}));
 
 // ''빈칸이면 넘어온 요청 defalt (/members)
 router.get('', member.find);
