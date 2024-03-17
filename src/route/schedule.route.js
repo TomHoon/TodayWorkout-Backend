@@ -1,8 +1,8 @@
 const router = require('express').Router();
-const upload = require('../controller/uploadFile.controller.js');
+const schedule = require('../controller/schedule.controller.js');
+const multer = require('multer');
 const path = require('path');
 const uploadDirectory = path.join(__dirname, '../../uploads'); //절대 경로
-const multer = require('multer');
 
 const uploader = multer({
     storage: multer.diskStorage({
@@ -14,11 +14,15 @@ const uploader = multer({
         cb(null, file.originalname);
       }
     }),
-  });
+});
 
-// ''빈칸이면 넘어온 요청 defalt (/uploadFile)
-router.post('', uploader.single('img'), (req, res) => {
-    upload.uploadFile(req, res);
+// ''빈칸이면 넘어온 요청 defalt (/schedule)
+router.get('',  (req, res) => {
+    schedule.find(req, res);
+});
+
+router.post('/addSchedule', uploader.single('img'), (req, res) => {
+    schedule.addSchedule(req, res);
 });
 
 module.exports = router;

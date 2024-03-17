@@ -20,8 +20,9 @@ app.use(morganMiddleware);
 // 순서 route > controller > models
 app.use('/members', require('./src/route/member.route'));
 app.use('/uploadFile', require('./src/route/uploadFile.route'));
+app.use('/schedule', require('./src/route/schedule.route'));
 
-app.use(express.static('uploads'));
+app.use('/uploads', express.static('uploads'));
 
 // const bodyParser = require("body-parser");
 
