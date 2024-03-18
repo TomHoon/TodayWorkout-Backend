@@ -31,6 +31,8 @@ app.use('/uploads', express.static('uploads'));
 // // create application/x-www-form-urlencoded parser
 // const urlencodedParser = bodyParser.urlencoded({ extended: false });
 
+app.use(express.static('uploads'));
+
 const port = process.env.PORT || 3300;
 
 const server = app.listen(port, function() {
