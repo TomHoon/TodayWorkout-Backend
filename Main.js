@@ -21,8 +21,10 @@ app.use(morganMiddleware);
 app.use('/members', require('./src/route/member.route'));
 app.use('/uploadFile', require('./src/route/uploadFile.route'));
 app.use('/schedule', require('./src/route/schedule.route'));
+app.use('/chat', require('./src/route/chat.route'));
 
 app.use('/uploads', express.static('uploads'));
+
 
 // const bodyParser = require("body-parser");
 
