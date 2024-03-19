@@ -35,10 +35,12 @@ exports.addSchedule = (req, res) => {
     UploadFile.uploadFile(uploadFile, (err, data) => {
         if (err) {
         } else {
-			const { reg_date, member_id } = req.body;
+			const { reg_date, member_id, time_stamp } = req.body;
+			
 			let param = {
 				reg_date: reg_date || new Date().getTime(),
 				member_id: member_id,
+				time_stamp: time_stamp,
 			};
 			param['file_idx'] = data.insertId;
 			schedule = new Schedule(param);
