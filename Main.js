@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const morganMiddleware = require('./src/log/morgan.js');
+const schedule = require('node-schedule');
 
 const maria = require("./maria.js");
 maria.connect();
@@ -42,3 +43,9 @@ const server = app.listen(port, function() {
 });
 
 require('./Chat.js').construct(server);
+
+// [스케줄러] 벌칙자 업데이트 (매일 자정에 실행)
+schedule.scheduleJob('0 0 * * *', function(){
+  const goSchedule = require('./src/controller/schedule.controller.js');
+  goSchedule.expireCheck();
+});
