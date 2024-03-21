@@ -64,7 +64,7 @@ exports.addSchedule = (req, res) => {
 			addSchedule(schedule);
         }
     });
-
+	res.send('success');
 };
 
 // [스케줄러] 벌칙자 업데이트
